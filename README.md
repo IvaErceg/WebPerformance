@@ -1,55 +1,30 @@
-## Website Performance Optimization portfolio project
+Part 1 : Mobile portfolio
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+How to run: Open index.html file in your web browser or go to https://ivaerceg.github.io/WebPerformance/.
 
-To get started, check out the repository and inspect the code.
+Goal of this part of the project was to achieve score of 90 in Page Speed analysis.
 
-### Getting started
+The following optimizations were made on index.html:
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+1) Inlined and minfied all of the CSS into the head of the document and added the HTML media="print" attribute to the external style sheet link for print styles.
 
-Some useful tips to help you get started:
+2) Used async and defer on analytics.js script.
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+3) Compressed and optimized all images so they are smaller in size(resized pizzeria image and changed it's src in index.html so it refers to smaller image in /img folder).
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+Part 2 : Cam's Pizzeria
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
+How to run : Open views/pizza.html file in your web browser or go to https://ivaerceg.github.io/WebPerformance/views/pizza.html.
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+Goal was to acheive a frame rate of 60 FPS on the pizza.html and main.js files and also to resize pizzas in under 5s.
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+The following adjustments were made:
 
-####Part 2: Optimize Frames per Second in pizza.html
+1. improving size slider
+done by modifying resizePizzas function
+Function determineDx was removed, instead function changePizzaSizes was modified so that it defines width attribute for corresponding size, and applies it to whole collection of pizzas in for loop. Changed selector querySelectorAll to getElementsByClassName, variables are defined outside of a loop so there is no repeated code.
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
-
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+2. getting to 60 FPS
+done by modifying updatePizza function
+Used getElementByClassName instead of querySelectorAll and defined variables outside of the loop so they are not constantly redefined. Changed number of moving pizzas on screen to  25 because there is never more visible then that. Used getElementByIf when selecting "movingPizzas1".
