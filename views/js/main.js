@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   //changed max numer of pizza to 40
-  for (var i = 0; i < 40; i++) {
+  for (var i = 0; i < 25; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
