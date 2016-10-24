@@ -2,7 +2,7 @@ Part 1 : Mobile portfolio
 
 How to run: Open index.html file in your web browser or go to https://ivaerceg.github.io/WebPerformance/.
 
-Goal of this part of the project was to achieve score of 90 in Page Speed analysis.
+Goal of this part of the project was to achieve score of 90 in Page Speed analysis (copy URL on designated place on https://developers.google.com/speed/pagespeed/insights/ and analyse).
 
 The following optimizations were made on index.html:
 
@@ -11,6 +11,8 @@ The following optimizations were made on index.html:
 2) Used async and defer on analytics.js script.
 
 3) Compressed and optimized all images so they are smaller in size(resized pizzeria image and changed it's src in index.html so it refers to smaller image in /img folder).
+
+4) Removed custom font.
 
 
 Part 2 : Cam's Pizzeria
